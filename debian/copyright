@@ -1,15 +1,15 @@
 This package was debianized by Changwoo Ryu <cwryu@debian.org> on
 Tue, 22 Aug 2000 02:13:16 +0900.
 
-It was downloaded from 
+It was downloaded from: http://freedesktop.org/Software/FriBidi
 
-  http://fribidi.sourceforge.net
-
-Upstream Author:
-
-  Dov Grobgeld <dov@imagic.weizmann.ac.il>
+Upstream Authors:
+	Dov Grobgeld <dov@imagic.weizmann.ac.il>
+	Behdad Esfahbod <behdad@gnu.org>
+	Roozbeh Pournader <roozbeh@gnu.org>
 
 Copyright:
 
   It may be redistributed under the terms of the GNU LGPL, Version 2 or
-  later, found on Debian systems in the file /usr/share/common-licenses/LGPL-2.
+  later, the license can be found in the file
+  /usr/share/common-licenses/LGPL-2.

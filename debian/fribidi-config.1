@@ -1,0 +1,30 @@
+.\" Process this file with
+.\" groff -man -Tascii fribidi-config.1
+.\"
+.TH fribidi-config 1 "OCTOBER 2004" "Library Configuration" "User Manuals"
+.SH NAME
+fribidi-config \- Display FriBidi Library Configuration
+.SH SYNOPSIS
+.B fribidi-config 
+.I OPTION 
+.B [
+.I OPTION
+.B ... ]
+.SH DESCRIPTION
+.B fribidi-config
+is a script that is used to display what compiler flags and libraries were
+used when FriBidi were built.
+
+.SH OPTIONS
+.IP --version
+FriBidi version information
+.IP --prefix
+displays prefix of directory where FriBidi were installed.
+.IP --exec-prefix
+displays exec-prefix of directory where FriBidi were installed.
+.IP --cflags
+C pre-processor and compiler flags for use with FriBidi.
+.IP --libs
+FriBidi library linking information
+.SH AUTHOR
+Baruch Even <baruch@debian.org>

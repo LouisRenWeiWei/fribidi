@@ -1,5 +1,5 @@
-TARFILE=fribidi-0.10.1.tar.gz
-TARDIR=fribidi-0.10.1
+TARFILE=fribidi-0.10.4.tar.gz
+TARDIR=fribidi-0.10.4
 
 CONFIGURE_FLAG= --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info
 
@@ -39,3 +39,10 @@ clean:
 	rm -rf $(TARDIR)
 	rm -f build*-stamp install*-stamp unpack-stamp
 	rm -f *~ patches/*~
+	rm -f fribidi_test
+
+test:	build
+	cd build/fribidi && make test check
+	gcc -static -o fribidi_test fribidi_test.c -Lbuild/fribidi/.libs -lfribidi -I$(TARDIR)
+	./fribidi_test
+	@echo "All Debian Package tests passed succesfully."

@@ -1,3 +1,75 @@
+fribidi (0.10.4-6) unstable; urgency=low
+
+  * The shlibs file in 0.10.4-5 pointed to use fribidi 0.10.5 which is a bug.
+    (Closes: #278616)
+
+ -- Baruch Even <baruch@debian.org>  Thu, 28 Oct 2004 13:04:35 +0100
+
+fribidi (0.10.4-5) unstable; urgency=low
+
+  * Fixed a portability issue in fribidi where the uint32 type it used was
+    really just unsigned long and this fails miserably on 64 bit machines.
+    This bug was exposed by geresh test program for fribidi on ia64 and alpha
+    machines.
+    - Now using standard glibc headers to provide uint32 type and similar size
+      mandataed types.
+    - Added a test program in build stage to make sure we don't have this
+      problem again.
+  * Upped the version required in the Build-Dep so that others will use the
+    fixed version (the above changed ABI on 64 bit machines).
+
+ -- Baruch Even <baruch@debian.org>  Mon, 25 Oct 2004 07:42:00 +0100
+
+fribidi (0.10.4-4) unstable; urgency=low
+
+  * Change the FriBidi homepage in the description. Closes: #275900, #275902
+  * Change the FriBidi homepage in the copyright file.
+  * Remove dependency on automake and libtool, it's unneeded.
+  * Updated watch file.
+  * Added fribidi-config manpage. Closes: #190549
+  * Add shlibs file so other packages will have the correct dependency.
+    Closes: #158886, #183540, #228776
+
+ -- Baruch Even <baruch@debian.org>  Mon, 11 Oct 2004 05:15:23 +0100
+
+fribidi (0.10.4-3) unstable; urgency=low
+
+  * Change -dev package to section libdevel, the override said so.
+
+ -- Baruch Even <baruch@debian.org>  Mon,  7 Jun 2004 08:38:59 +0300
+
+fribidi (0.10.4-2) unstable; urgency=low
+
+  * Move the files in the udeb from /usr/lib to /lib, needed for library
+    reduction to work properly (God knows why). Thanks to Steve Langasek.
+    Closes: #252958
+
+ -- Baruch Even <baruch@debian.org>  Sun,  6 Jun 2004 21:00:04 +0300
+
+fribidi (0.10.4-1.1) unstable; urgency=low
+
+  * NMU.
+  * Produce libfribidi-udeb for debian Installer.
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sat, 27 Mar 2004 21:17:09 +0000
+
+fribidi (0.10.4-1) unstable; urgency=low
+
+  * New maintainer (Closes: bug#188662)
+  * Moved dh_installdeb near the end so that postrm/postinst will be installed
+    correctly.
+  * Add manpage for fribidi (Closes: bug#174817)
+  * Move pkgconfig files to -dev package (Closes: bug#186158)
+
+ -- Baruch Even <baruch@debian.org>  Sat, 19 Apr 2003 17:32:26 +0300
+
+fribidi (0.10.4-0.1) unstable; urgency=low
+
+  * NMU.
+  * New upstream release - closes: #156879, #157807
+
+ -- Masayuki Hatta <mhatta@debian.org>  Thu, 29 Aug 2002 09:56:48 +0900
+
 fribidi (0.10.1-2) unstable; urgency=low
 
   * Removed Depends, Build-Depends which don't be needed anymore.

@@ -15,11 +15,24 @@ export DH_COMPAT=3
 # This has to be exported to make some magic below work.
 export DH_OPTIONS
 
+FRIBIDI_UDEB=libfribidi0-udeb
+DEBVERSION=$(shell dpkg-parsechangelog | grep '^Version: ' | sed -e 's/^Version: //')
+UDEBNAME=$(FRIBIDI_UDEB)_$(DEBVERSION)_$(shell dpkg --print-architecture).udeb
+
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+OBJS += xmalloc.o
+STRIP= /bin/true
+else
+STRIPTOOL=strip
+STRIP= $(STRIPTOOL) --remove-section=.note --remove-section=.comment
+endif
+
 build: build-stamp
 build-stamp:
 	dh_testdir
 
 	$(MAKE)
+	$(MAKE) test
 
 	touch build-stamp
 
@@ -55,30 +68,25 @@ binary-arch: build install
 
 	dh_movefiles
 
-#	dh_installdebconf
-	dh_installdocs
-#	dh_installexamples
-#	dh_installmenu
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installinit
-#	dh_installcron
-#	dh_installmanpages
-#	dh_installinfo
-	dh_undocumented
-	dh_installchangelogs fribidi-0.10.1/ChangeLog
+	dh_installdocs -a -N$(FRIBIDI_UDEB)
+	dh_installman -a -N$(FRIBIDI_UDEB)
+	dh_installchangelogs fribidi-0.10.4/ChangeLog -a -N$(FRIBIDI_UDEB)
+	mkdir -p debian/$(FRIBIDI_UDEB)/lib
+	cp -a debian/libfribidi0/usr/lib/* debian/$(FRIBIDI_UDEB)/lib
+	$(STRIP) debian/$(FRIBIDI_UDEB)/lib/libfribidi.so.0.0.0
 	dh_strip
 	dh_link
 	dh_compress
 	dh_fixperms
-#	dh_suidregister
-	dh_installdeb
-	dh_makeshlibs
-#	dh_perl
-	dh_shlibdeps -Xusr/bin/fribidi
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh_makeshlibs -N$(FRIBIDI_UDEB)
+	dh_shlibdeps -Xusr/bin/fribidi -N$(FRIBIDI_UDEB)
+	dh_installdeb -N$(FRIBIDI_UDEB)
+	dh_gencontrol -a -N$(FRIBIDI_UDEB)
+	dh_md5sums -a -N$(FRIBIDI_UDEB)
+	dh_builddeb -a -N$(FRIBIDI_UDEB)
+	dh_gencontrol -p$(FRIBIDI_UDEB) -- -fdebian/files~
+	dpkg-distaddfile $(UDEBNAME) debian-installer extra
+	dh_builddeb $(FRIBIDI_UDEB) --filename=$(UDEBNAME)
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install

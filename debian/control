@@ -1,9 +1,9 @@
 Source: fribidi
 Section: libs
 Priority: optional
-Maintainer: Changwoo Ryu <cwryu@debian.org>
-Standards-Version: 3.5.6
-Build-Depends: debhelper, pkg-config, automake, libtool
+Maintainer: Baruch Even <baruch@debian.org>
+Standards-Version: 3.6.1
+Build-Depends: debhelper (>> 3.0.0), pkg-config
 
 Package: libfribidi0
 Architecture: any
@@ -11,11 +11,25 @@ Depends: ${shlibs:Depends}
 Description: Free Implementation of the Unicode BiDi algorithm
  FriBiDi is a BiDi algorithm implementation for Hebrew and/or Arabic
  languages.
+ .
+ Upstream: http://freedesktop.org/Software/FriBidi
 
 Package: libfribidi-dev
 Architecture: any
-Section: devel
+Section: libdevel
 Depends: libfribidi0 (= ${Source-Version})
 Description: Development files for FreeBidi library
  This package contains the header files and static libraries for the
  FriBidi C library.
+ .
+ Upstream: http://freedesktop.org/Software/FriBidi
+
+Package: libfribidi0-udeb
+Architecture: any
+Section: debian-installer
+Priority: extra
+Depends: libc-udeb
+Description: Free Implementation of the Unicode BiDi algorithm
+ This Debian Installer component provided Bidirectional support 
+ for Arabic and/or Hebrew languages.
+
