@@ -27,8 +27,15 @@ STRIPTOOL=strip
 STRIP= $(STRIPTOOL) --remove-section=.note --remove-section=.comment
 endif
 
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	./configure --prefix=/usr --disable-dependency-tracking
+	touch configure-stamp
+
+
 build: build-stamp
-build-stamp:
+build-stamp: configure-stamp
 	dh_testdir
 
 	$(MAKE)
@@ -40,6 +47,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
+	rm -rf $(CURDIR)/debian/tmp
 
 	-$(MAKE) clean
 
@@ -52,7 +60,7 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	$(MAKE) install
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
 
 # Build architecture-independent files here.
 # Pass -i to all debhelper commands in this target to reduce clutter.
@@ -70,7 +78,7 @@ binary-arch: build install
 
 	dh_installdocs -a -N$(FRIBIDI_UDEB)
 	dh_installman -a -N$(FRIBIDI_UDEB)
-	dh_installchangelogs fribidi-0.10.4/ChangeLog -a -N$(FRIBIDI_UDEB)
+	dh_installchangelogs ChangeLog -a -N$(FRIBIDI_UDEB)
 	mkdir -p debian/$(FRIBIDI_UDEB)/lib
 	cp -a debian/libfribidi0/usr/lib/* debian/$(FRIBIDI_UDEB)/lib
 	$(STRIP) debian/$(FRIBIDI_UDEB)/lib/libfribidi.so.0.0.0
@@ -89,4 +97,4 @@ binary-arch: build install
 	dh_builddeb $(FRIBIDI_UDEB) --filename=$(UDEBNAME)
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: build clean binary-indep binary-arch binary install configure

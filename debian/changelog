@@ -1,3 +1,9 @@
+fribidi (0.10.5-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Baruch Even <baruch@debian.org>  Thu,  9 Jun 2005 21:08:31 +0100
+
 fribidi (0.10.4-6) unstable; urgency=low
 
   * The shlibs file in 0.10.4-5 pointed to use fribidi 0.10.5 which is a bug.
