@@ -25,12 +25,13 @@ STRIP= /bin/true
 else
 STRIPTOOL=strip
 STRIP= $(STRIPTOOL) --remove-section=.note --remove-section=.comment
+DEB_CFLAGS=-Os -fomit-frame-pointer
 endif
 
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	./configure --prefix=/usr --disable-dependency-tracking
+	CFLAGS="${DEB_CFLAGS}" ./configure --prefix=/usr --disable-dependency-tracking
 	touch configure-stamp
 
 
@@ -70,7 +71,6 @@ binary-indep:
 # Pass -a to all debhelper commands in this target to reduce clutter.
 binary-arch: DH_OPTIONS=-a
 binary-arch: build install
-	# Need this version of debhelper for DH_OPTIONS to work.
 	dh_testdir
 	dh_testroot
 

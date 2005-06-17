@@ -1,3 +1,10 @@
+fribidi (0.10.5-2) unstable; urgency=low
+
+  * Compile with -Os -fomit-frame-pointer to reduce size of udeb
+    (Closes: #314379)
+
+ -- Baruch Even <baruch@debian.org>  Fri, 17 Jun 2005 11:03:25 +0100
+
 fribidi (0.10.5-1) unstable; urgency=low
 
   * New upstream version
