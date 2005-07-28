@@ -1,8 +1,9 @@
 Source: fribidi
 Section: libs
 Priority: optional
-Maintainer: Baruch Even <baruch@debian.org>
-Standards-Version: 3.6.1
+Maintainer: Debian Hebrew Packaging Team <debian-hebrew-package@lists.alioth.debian.org>
+Uploaders: Baruch Even <baruch@debian.org>, Lior Kaplan <webmaster@guides.co.il>
+Standards-Version: 3.6.2
 Build-Depends: debhelper (>> 3.0.0), pkg-config
 
 Package: libfribidi0
