@@ -13,7 +13,7 @@ Description: Free Implementation of the Unicode BiDi algorithm
  FriBiDi is a BiDi algorithm implementation for Hebrew and/or Arabic
  languages.
  .
- Upstream: http://freedesktop.org/Software/FriBidi
+ Upstream: http://fribidi.org/
 
 Package: libfribidi-dev
 Architecture: any
@@ -23,7 +23,7 @@ Description: Development files for FreeBidi library
  This package contains the header files and static libraries for the
  FriBidi C library.
  .
- Upstream: http://freedesktop.org/Software/FriBidi
+ Upstream: http://fribidi.org/
 
 Package: libfribidi0-udeb
 Architecture: any

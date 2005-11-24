@@ -1,3 +1,12 @@
+fribidi (0.10.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Update link to homepage.
+  * Update libtool/automake/autoconf scripts
+  * Update shlibs to force builders to depend on the latest version
+
+ -- Baruch Even <baruch@debian.org>  Thu, 24 Nov 2005 20:38:11 +0000
+
 fribidi (0.10.5-4) unstable; urgency=low
 
   * Tighten shlibs again (Closes: #327368, #324397)
