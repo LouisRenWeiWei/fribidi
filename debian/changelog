@@ -1,3 +1,12 @@
+fribidi (0.10.7-2) unstable; urgency=low
+
+  * Update watch file (Closes: #354354)
+  * Use -V option to dh_makeshlibs to automatically update the shlibs file of
+    the package. So far upstream doesn't use so numbering and we have to
+    resort to this hack.
+
+ -- Baruch Even <baruch@debian.org>  Sun, 26 Feb 2006 19:01:46 +0000
+
 fribidi (0.10.7-1) unstable; urgency=low
 
   * New upstream release

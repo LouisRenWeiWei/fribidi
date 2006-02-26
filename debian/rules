@@ -49,7 +49,7 @@ clean:
 
 	-$(MAKE) clean
 
-	dh_clean
+	dh_clean config.log config.status
 
 install: DH_OPTIONS=
 install: build
@@ -83,7 +83,7 @@ binary-arch: build install
 	dh_link
 	dh_compress
 	dh_fixperms
-	dh_makeshlibs -N$(FRIBIDI_UDEB)
+	dh_makeshlibs -V -N$(FRIBIDI_UDEB)
 	dh_shlibdeps -Xusr/bin/fribidi -N$(FRIBIDI_UDEB)
 	dh_installdeb -N$(FRIBIDI_UDEB)
 	dh_gencontrol -a -N$(FRIBIDI_UDEB)

@@ -1,2 +1,2 @@
-version=2
-http://freedesktop.org/~fribidi/download/fribidi-([\d\.]+)\.tar\.gz
+version=3
+http://fribidi.org/download/ fribidi-(.*)\.tar\.gz
