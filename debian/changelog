@@ -1,3 +1,15 @@
+fribidi (0.10.7-3) unstable; urgency=low
+
+  [ Lior Kaplan ]
+  * Apply patch from Frans Pop on debian/{rules,control} to better handle udeb
+    package in the shlibs file (Closes: #356260)
+
+  [ Baruch Even ]
+  * Update watch file to use www.fribidi.org instead of fribidi.org, the later
+    seems to be malfunctioning.
+
+ -- Lior Kaplan <kaplan@debian.org>  Tue, 14 Mar 2006 23:21:06 +0200
+
 fribidi (0.10.7-2) unstable; urgency=low
 
   * Update watch file (Closes: #354354)
