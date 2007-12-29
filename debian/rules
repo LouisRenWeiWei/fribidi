@@ -42,7 +42,7 @@ clean:
 	rm -f build-stamp configure-stamp
 	rm -rf $(CURDIR)/debian/tmp
 
-	-$(MAKE) clean
+	[ ! -f Makefile ] || $(MAKE) clean
 
 	dh_clean config.log config.status
 

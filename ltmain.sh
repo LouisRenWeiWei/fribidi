@@ -2112,10 +2112,7 @@ EOF
 	case $pass in
 	dlopen) libs="$dlfiles" ;;
 	dlpreopen) libs="$dlprefiles" ;;
-	link)
-	  libs="$deplibs %DEPLIBS%"
-	  test "X$link_all_deplibs" != Xno && libs="$libs $dependency_libs"
-	  ;;
+	link) libs="$deplibs %DEPLIBS% $dependency_libs" ;;
 	esac
       fi
       if test "$pass" = dlopen; then
@@ -3235,11 +3232,6 @@ EOF
 	    current=`expr $number_major + $number_minor - 1`
 	    age="$number_minor"
 	    revision="$number_minor"
-	    ;;
-	  *)
-	    $echo "$modename: unknown library version type \`$version_type'" 1>&2
-	    $echo "Fatal configuration error.  See the $PACKAGE docs for more information." 1>&2
-	    exit $EXIT_FAILURE
 	    ;;
 	  esac
 	  ;;

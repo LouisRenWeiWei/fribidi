@@ -1,3 +1,21 @@
+fribidi (0.10.9-1) unstable; urgency=low
+
+  [ Baruch Even ]
+  * New upstream version 0.10.8
+    - Upgrade from unicode standard version 4.1 to 5.0
+
+  [ Lior Kaplan ]
+  * Update debian/control so packages are binNMU safe.
+    See http://wiki.debian.org/binNMU for more info.
+
+  [ Baruch Even ]
+  * Do not ignore errors for make clean
+  * Move Homepage from description to control field
+  * Updated to 0.10.9, former version failed its build tests (Closes: #428067)
+  * Update Standards-Version to 3.7.3, no changes needed
+
+ -- Baruch Even <baruch@debian.org>  Sat, 29 Dec 2007 17:37:56 +0200
+
 fribidi (0.10.7-4) unstable; urgency=low
 
   * Fix manual page name section (Closes: #368632)
