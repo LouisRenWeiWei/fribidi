@@ -37,7 +37,7 @@ extern "C"
 #define FRIBIDI_ALLOC_ONLY      1
 #define FRIBIDI_ALLOC_AND_FREE  2
 
-  FriBidiMemChunk *fribidi_mem_chunk_new (char *name,
+  FriBidiMemChunk *fribidi_mem_chunk_new (const char *name,
 					  int atom_size,
 					  unsigned long area_size, int type);
   void fribidi_mem_chunk_destroy (FriBidiMemChunk *mem_chunk);

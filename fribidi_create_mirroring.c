@@ -28,7 +28,7 @@
 #include "fribidi_unicode.h"
 
 static void
-err2 (char *fmt, char *p)
+err2 (const char *fmt, char *p)
 {
   fprintf (stderr, "fribidi_create_mirroring: error: ");
   fprintf (stderr, fmt, p);
@@ -42,7 +42,7 @@ static char *bidi_mirroring_file;
 static int mirroring_count;
 
 static void
-read_bidi_mirroring ()
+read_bidi_mirroring (void)
 {
   char s[500];
   unsigned int i, j;
@@ -130,7 +130,7 @@ write_mirror (char *file)
 int
 main (int argc, char **argv)
 {
-  char *p;
+  const char *p;
 
   p = (argc >= 2) ? argv[1] : "unidata";
   bidi_mirroring_file = malloc (50 + strlen (p));

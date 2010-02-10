@@ -1,10 +1,10 @@
 
 #define FRIBIDI_PACKAGE "fribidi"
 
-#define FRIBIDI_VERSION "0.10.5"
+#define FRIBIDI_VERSION "0.10.7"
 #define FRIBIDI_MAJOR_VERSION 0
 #define FRIBIDI_MINOR_VERSION 10
-#define FRIBIDI_MICRO_VERSION 5
+#define FRIBIDI_MICRO_VERSION 7
 #define FRIBIDI_INTERFACE_VERSION 2
 
 #if 0 /* FRIBIDI_NO_CHARSETS */
@@ -31,19 +31,6 @@
 
 #endif /* WIN32 */
 
-/* __BEGIN_DECLS should be used at the beginning of your declarations,
- * so that C++ compilers don't mangle their names.  Use __END_DECLS at
- * the end of C declarations. */
-#undef __BEGIN_DECLS
-#undef __END_DECLS
-#ifdef __cplusplus
-#define __BEGIN_DECLS extern "C" {
-#define __END_DECLS }
-#else /* NOT __cplusplus */
-#define __BEGIN_DECLS		/* empty */
-#define __END_DECLS		/* empty */
-#endif /* __cplusplus */
-
 #define FRIBIDI_TRUE    1
 #define FRIBIDI_FALSE   0
 
@@ -53,3 +40,7 @@
 #ifndef FALSE
 #define FALSE FRIBIDI_FALSE
 #endif /* FALSE */
+
+#define FRIBIDI_SIZEOF_SHORT 2
+#define FRIBIDI_SIZEOF_INT 4
+#define FRIBIDI_SIZEOF_LONG 4

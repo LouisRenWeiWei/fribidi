@@ -25,7 +25,7 @@
 
 struct _FriBidiMemChunk
 {
-  char *name;
+  const char *name;
   int atom_size;
   int area_size;
   int type;
@@ -54,7 +54,7 @@ fribidi_list_append (FriBidiList *list, void *data)
 }
 
 FriBidiMemChunk *
-fribidi_mem_chunk_new (char *name,
+fribidi_mem_chunk_new (const char *name,
 		       int atom_size, unsigned long area_size, int type)
 {
   FriBidiMemChunk *m = (FriBidiMemChunk *) malloc (sizeof (FriBidiMemChunk));

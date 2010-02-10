@@ -40,7 +40,7 @@ extern char *fribidi_version_info;
 #define MAX_STR_LEN 1000
 
 static void
-die (char *fmt, ...)
+die (const char *fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
