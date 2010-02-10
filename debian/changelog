@@ -16,7 +16,6 @@ fribidi (0.19.2-1) UNRELEASED; urgency=low
     + Enhanced extended description for libfribidi0 and libfribidi-dev.
     + Added ${misc:Depends} to Depends fields.
     + Added myself to uploaders.
-  * Added debian/libfribidi0.symbols
   * debian/fribidi.1: Fix a typo.
   * Added manpages.diff patch to fix a couple of hyphen issues in
     fribidi_remove_bidi_marks.3
