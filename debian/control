@@ -9,6 +9,8 @@ Uploaders: Baruch Even <baruch@debian.org>,
 Standards-Version: 3.8.4
 Build-Depends: debhelper (>= 7.0.50~), pkg-config
 Homepage: http://www.fribidi.org/
+Vcs-Git: git://git.debian.org/git/collab-maint/fribidi.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/fribidi.git
 
 Package: libfribidi0
 Architecture: any
