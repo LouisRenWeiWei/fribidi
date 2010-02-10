@@ -32,11 +32,11 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include "getopt.h"
+#include "fribidi.h"
 #ifdef FRIBIDI_NO_CHARSETS
 #include <iconv.h>
 #endif
-#include "getopt.h"
-#include "fribidi.h"
 
 #define appname "fribidi"
 #define appversion VERSION

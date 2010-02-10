@@ -262,7 +262,7 @@ fribidi_char_set_enter_cap_rtl (void)
       int i, count;
 
       caprtl_to_unicode =
-	(FriBidiChar *) malloc (CAPRTL_CHARS * sizeof caprtl_to_unicode[0]);
+	(FriBidiChar *) calloc (CAPRTL_CHARS, sizeof (caprtl_to_unicode[0]));
       for (i = 0; i < FRIBIDI_TYPES_COUNT; i++)
 	request[i] = 0;
       for (i = 0; i < CAPRTL_CHARS; i++)
