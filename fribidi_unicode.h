@@ -32,7 +32,7 @@ extern "C"
 
 /* Unicode version */
 #define FRIBIDI_UNICODE_CHARS	(sizeof(FriBidiChar) >= 4 ? 0x110000 : 0x10000)
-#define FRIBIDI_UNICODE_VERSION	"4.1.0"
+#define FRIBIDI_UNICODE_VERSION	"5.0.0"
 
 /* UAX#9 Unicode BiDirectional Algorithm */
 #define UNI_MAX_BIDI_LEVEL 61

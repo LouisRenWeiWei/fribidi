@@ -47,6 +47,8 @@ libfribidi_la_SOURCES =	\
 	$(libfribidi_charsets)	\
 	$(libfribidi_charsets_extra)
 
+libfribidi_la_LDFLAGS = -no-undefined
+
 libfribidi_la_LIBADD = 
 
 libfribidiincdir = $(includedir)/fribidi

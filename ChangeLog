@@ -1,3 +1,30 @@
+2007-07-09  Behdad Esfahbod  <behdad@gnome.org>
+	GNU FriBidi 0.10.9 released.
+
+2007-08-09  Behdad Esfahbod  <behdad@gnome.org>
+	* fribidi_char_sets_cap_rtl.c (fribidi_char_set_enter_cap_rtl):
+	Zero-out allocated memory by using calloc.  We were assuming
+	memory is zeroed without ever zeroing it.  Oops!
+
+2007-05-25  Behdad Esfahbod  <behdad@gnome.org>
+	GNU FriBidi 0.10.8 released.
+	Update Unicode version to 5.0.0.
+
+2007-05-25  Behdad Esfahbod  <behdad@gnu.org>
+	* wcwidth.c (mk_wcwidth): Update to latest version, reflecting
+	Unicode Character Database 5.0.0.
+
+2006-07-21  Behdad Esfahbod <behdad@gnu.org>
+	* *.i: Update to Unicode Character Database 5.0.0.
+
+2006-04-27  Behdad Esfahbod <behdad@gnu.org>
+	* Makefile.am: Pass -no-undefined to linker.
+	(fixes fd.o bug #5509)
+
+2006-02-23  Behdad Esfahbod <behdad@gnu.org>
+	* fribidi_main.c: #include fribidi.h before checking for iconv.
+	(fixes fd.o bug #4659)
+
 2005-09-25  Behdad Esfahbod <behdad@gnu.org>
 	GNU FriBidi 0.10.7 released.  0.10.6 was not shipped for some reasons.
 

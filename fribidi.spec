@@ -11,10 +11,10 @@
 #	Where N is the major version number.
 
 %define name fribidi
-%define ver 0.10.7
+%define ver 0.10.9
 %define major 0
 %define minor 10
-%define micro 7
+%define micro 9
 %define apiver 2
 %define rel 1
 %define prefix %{_prefix}

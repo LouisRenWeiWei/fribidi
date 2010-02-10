@@ -20,10 +20,10 @@ dnl   FRIBIDI_RPM_RELEASE++;
 dnl
 m4_define(fribidi_major_version, 0)dnl
 m4_define(fribidi_minor_version, 10)dnl
-m4_define(fribidi_micro_version, 7)dnl
+m4_define(fribidi_micro_version, 9)dnl
 m4_define(fribidi_interface_version, 2)dnl
-m4_define(fribidi_interface_age, 7)dnl
-m4_define(fribidi_binary_age, 7)dnl
+m4_define(fribidi_interface_age, 9)dnl
+m4_define(fribidi_binary_age, 8)dnl
 m4_define(fribidi_rpm_release, 1)dnl
 dnl
 m4_define(fribidi_version,
@@ -32,7 +32,7 @@ m4_define(fribidi_version,
 	    fribidi_major_version.fribidi_minor_version.fribidi_micro_version))dnl
 
 AC_INIT([GNU FriBidi],fribidi_version(),[http://fribidi.org/bug])
-AC_REVISION([$Id: configure.in,v 1.22.2.12 2005/09/25 22:27:39 behdad Exp $])
+AC_REVISION([$Id: configure.in,v 1.22.2.15 2007/08/09 23:37:57 behdad Exp $])
 AC_CONFIG_SRCDIR(fribidi.c)
 AC_CONFIG_HEADERS(config.h)
 AM_INIT_AUTOMAKE([gnu])
