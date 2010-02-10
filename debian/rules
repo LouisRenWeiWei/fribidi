@@ -1,16 +1,7 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper. 
-# GNU copyright 1997 by Joey Hess.
-#
-# This version is for a hypothetical package that builds an
-# architecture-dependant package, as well as an architecture-independent
-# package.
 
 # Uncomment this to turn on verbose mode. 
 #export DH_VERBOSE=1
-
-# This has to be exported to make some magic below work.
-export DH_OPTIONS
 
 FRIBIDI_UDEB=libfribidi0-udeb
 
@@ -20,69 +11,21 @@ else
 DEB_CFLAGS=-Os -fomit-frame-pointer
 endif
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	CFLAGS="${DEB_CFLAGS}" ./configure --prefix=/usr --disable-dependency-tracking
-	touch configure-stamp
+%:
+	dh $@
 
+override_dh_auto_configure:
+	dh_auto_configure -- CFLAGS="${DEB_CFLAGS}"
 
-build: build-stamp
-build-stamp: configure-stamp
-	dh_testdir
+override_dh_auto_install:
+	dh_auto_install
+	# Remove empty manpages:
+	rm debian/tmp/usr/share/man/man3/fribidi_set_debug.3
+	rm debian/tmp/usr/share/man/man3/fribidi_unicode_version.3
+	rm debian/tmp/usr/share/man/man3/fribidi_version_info.3
 
-	$(MAKE)
-	$(MAKE) test
-
-	touch build-stamp
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-	rm -rf $(CURDIR)/debian/tmp
-
-	[ ! -f Makefile ] || $(MAKE) clean
-
-	dh_clean config.log config.status
-
-install: DH_OPTIONS=
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs
-
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
-
-# Build architecture-independent files here.
-# Pass -i to all debhelper commands in this target to reduce clutter.
-binary-indep: 
-
-# Build architecture-dependent files here.
-# Pass -a to all debhelper commands in this target to reduce clutter.
-binary-arch: DH_OPTIONS=-a
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-
-	dh_movefiles
-
-	dh_installdocs -a
-	dh_installman -a
-	dh_installchangelogs ChangeLog -a
-	mkdir -p debian/$(FRIBIDI_UDEB)/lib
-	cp -a debian/libfribidi0/usr/lib/* debian/$(FRIBIDI_UDEB)/lib
-	dh_strip -a
-	dh_link
-	dh_compress
-	dh_fixperms
+override_dh_makeshlibs:
 	dh_makeshlibs -V --add-udeb="$(FRIBIDI_UDEB)"
-	dh_shlibdeps -Xusr/bin/fribidi
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
 
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+override_dh_shlibdeps:
+	dh_shlibdeps -Xusr/bin/fribidi

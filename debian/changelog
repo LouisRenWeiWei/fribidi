@@ -1,3 +1,31 @@
+fribidi (0.19.2-1) UNRELEASED; urgency=low
+
+  * New upstream release. (Closes: #462612)
+  * Switch to 3.0 (quilt) source format.
+  * Added LGPL2 copyright notice in debian/copyright.
+  * Removed fribidi-config.1 since fribidi-config is removed from upstream.
+  * Added THANKS file to libfribidi0.docs.
+  * Added debian/tmp/usr/share/man/man3/*.3 to libfribid-dev.manpages.
+  * debian/rules:
+    + Simplify rules file.
+    + remove empty manpages.
+  * debian/compat: Bump to 7.
+  * debian/control:
+    + Bump debhelper version to >= 7.0.50~ in Build-Depends.
+    + Bump Standards-Version to 3.8.4
+    + Enhanced extended description for libfribidi0 and libfribidi-dev.
+    + Added ${misc:Depends} to Depends fields.
+    + Added myself to uploaders.
+  * Added debian/libfribidi0.symbols
+  * debian/fribidi.1: Fix a typo.
+  * Added manpages.diff patch to fix a couple of hyphen issues in
+    fribidi_remove_bidi_marks.3
+  * Added typos.diff patch to fix typo in fribidi help information.
+  * Use dh_install instead of dh_movefiles: Rename debian/*.files to 
+    debian/*.install
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 04 Feb 2010 13:15:40 +0200
+
 fribidi (0.10.9-1) unstable; urgency=low
 
   [ Baruch Even ]

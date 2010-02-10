@@ -1,4 +1,3 @@
-usr/bin/fribidi-config
 usr/include/fribidi/
 usr/lib/libfribidi.a
 usr/lib/libfribidi.la
