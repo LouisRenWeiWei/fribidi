@@ -24,7 +24,23 @@
 #define FRIBIDI_TYPES_H
 
 #include "fribidi_config.h"
-#include <stdint.h>
+
+#define FRIBIDI_INT8	char
+#if FRIBIDI_SIZEOF_INT+0 == 2
+# define FRIBIDI_INT16	int
+#elif FRIBIDI_SIZEOF_SHORT+0 == 2
+# define FRIBIDI_INT16	short
+#else
+# error cannot determine a 16-bit integer type.  check fribidi_config.h
+#endif
+#if FRIBIDI_SIZEOF_INT+0 == 4
+# define FRIBIDI_INT32	int
+#elif FRIBIDI_SIZEOF_LONG+0 == 4
+# define FRIBIDI_INT32	long
+#else
+# error cannot determine a 32-bit integer type.  check fribidi_config.h
+#endif
+
 
 #ifdef __cplusplus
 extern "C"
@@ -33,13 +49,14 @@ extern "C"
 
   typedef int fribidi_boolean;
 
-  typedef int8_t fribidi_int8;
-  typedef uint8_t fribidi_uint8;
-  typedef int16_t fribidi_int16;
-  typedef uint16_t fribidi_uint16;
-  typedef int32_t fribidi_int32;
-  typedef uint32_t fribidi_uint32;
-  typedef int fribidi_int;
+  typedef signed FRIBIDI_INT8 fribidi_int8;
+  typedef unsigned FRIBIDI_INT8 fribidi_uint8;
+  typedef signed FRIBIDI_INT16 fribidi_int16;
+  typedef unsigned FRIBIDI_INT16 fribidi_uint16;
+  typedef signed FRIBIDI_INT32 fribidi_int32;
+  typedef unsigned FRIBIDI_INT32 fribidi_uint32;
+
+  typedef signed int fribidi_int;
   typedef unsigned int fribidi_uint;
 
 
@@ -69,9 +86,10 @@ extern "C"
   };
 
 #ifndef FRIBIDI_MAX_STRING_LENGTH
-#define FRIBIDI_MAX_STRING_LENGTH (sizeof (FriBidiStrIndex) == 2 ?	\
+#define FRIBIDI_MAX_STRING_LENGTH (FriBidiStrIndex) \
+				  (sizeof (FriBidiStrIndex) == 2 ?	\
     				   0x7FFE : (sizeof (FriBidiStrIndex) == 1 ? \
-					     0x7E : 0x8FFFFFFEL))
+					     0x7E : 0x7FFFFFFEL))
 #endif
 
 
@@ -290,7 +308,7 @@ extern "C"
 
 /*
  * Define character types that char_type_tables use.
- * define them to be 0, 1, 2, ... and then in fribidi_get_type.c map them
+ * define them to be 0, 1, 2, ... and then in fribidi_char_type.c map them
  * to FriBidiCharTypes.
  */
   typedef char FriBidiPropCharType;
@@ -304,7 +322,7 @@ extern "C"
   };
 
 /* Map fribidi_prop_types to fribidi_types */
-  extern FriBidiCharType *fribidi_prop_to_type;
+  extern const FriBidiCharType fribidi_prop_to_type[];
 
 #ifdef	__cplusplus
 }

@@ -34,10 +34,10 @@ extern "C"
 		  int key_size,
 		  int max_depth,
 		  int tab_width,
-		  char **name,
-		  char *key_type_name,
-		  char *table_name,
-		  char *macro_name,
+		  const char * const *name,
+		  const char *key_type_name,
+		  const char *table_name,
+		  const char *macro_name,
 		  FILE * out);
 
 #ifdef	__cplusplus

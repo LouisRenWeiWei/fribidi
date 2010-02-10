@@ -34,7 +34,7 @@ typedef int uni_table[1024 * 1024 * 2];
 static int n, a, max_depth, N, digits, tab_width, per_row;
 static uni_table temp, x, perm, *tab;
 static int pow[22], cluster, cmpcluster;
-static char **name, *key_type_name, *table_name, *macro_name;
+static const char * const *name, *key_type_name, *table_name, *macro_name;
 static FILE *f;
 
 static void
@@ -292,7 +292,7 @@ write_source (void)
 }
 
 static void
-write_out ()
+write_out (void)
 {
   int i;
   fprintf (f, "/*\n"
@@ -319,10 +319,10 @@ pack_table (int *base,
 	    int key_size,
 	    int p_max_depth,
 	    int p_tab_width,
-	    char **p_name,
-	    char *p_key_type_name,
-	    char *p_table_name,
-	    char *p_macro_name,
+	    const char * const *p_name,
+	    const char *p_key_type_name,
+	    const char *p_table_name,
+	    const char *p_macro_name,
 	    FILE * out)
 {
   N = key_num;

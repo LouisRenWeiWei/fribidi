@@ -93,6 +93,8 @@ UNIDATA_FILES =	\
 OTHER_FILES =	\
 	wcwidth.i
 
+TESTS = run.tests
+
 EXTRA_HEADERS =	\
 	packtab.h	\
 	$(libfribidi_extra_h)	\
@@ -100,12 +102,8 @@ EXTRA_HEADERS =	\
 
 EXTRA_DIST =	\
 	bootstrap \
-	run.tests	\
-	acinclude.m4	\
-	fribidi_config.h.in	\
-	fribidi.pc.in	\
-	fribidi.spec.in	\
 	fribidi.spec	\
+	$(TESTS)	\
 	$(TEST_FILES)	\
 	$(TABLE_FILES)	\
 	$(UNIDATA_FILES)	\
@@ -147,7 +145,7 @@ fribidi_tab_char_type_%.i: $(fribidi_create_char_types_SOURCES)	\
 	if test -d unidata; then UNIDATA=unidata;	\
 	else UNIDATA="$(srcdir)/unidata"; fi &&	\
 	./fribidi_create_char_types "`echo "$@"	\
-	  | $(SED) 's/[^0-9]*//g'`" "$$UNIDATA" ||	\
+	  | sed 's/[^0-9]*//g'`" "$$UNIDATA" ||	\
 	($(RM) "$@"; false)
 	$(RM) fribidi_tab_char_type_stamp
 	$(MAKE) fribidi_tab_char_type_stamp
@@ -178,14 +176,14 @@ tests/test_%.reference: tests/test_%.input $(libfribidi_la_SOURCES)
 	$(MAKE) fribidi
 	(test -d tests || mkdir tests) &&	\
 	testcase="$@" && 	\
-	charset="`echo "$@" | $(SED) 's/_[^_]*$$//;s/.*_//'`" &&	\
+	charset="`echo "$@" | sed 's/_[^_]*$$//;s/.*_//'`" &&	\
 	./fribidi --test --charset "$$charset" "$<" > "$@" || \
 	($(RM) "$@"; false)
 
 test.reference:
 	for testcase in "$(srcdir)"/tests/test_*.input; do	\
 		test="`echo "$$testcase"	\
-		  | $(SED) 's/\.input$$/.reference/i; s|.*/||;'`" &&	\
+		  | sed 's/\.input$$/.reference/i; s|.*/||;'`" &&	\
 		$(MAKE) "tests/$$test" ||	\
 		exit 1;	\
 	done
@@ -196,8 +194,6 @@ test: fribidi
 .PHONY:		test test.reference	\
 		fribidi_tab_char_type_small fribidi_tab_char_type_large	\
 		fribidi_tab_mirroring fribidi_tab tab
-
-TESTS = run.tests
 
 bin_SCRIPTS = fribidi-config
 
@@ -222,7 +218,12 @@ MAINTAINERCLEANFILES = \
 		$(srcdir)/ltmain.sh \
 		$(srcdir)/missing \
 		`find "$(srcdir)" -type f -name Makefile.in -print` \
-		`find "$(srcdir)" -type f -name "*~" -print`
+		`find "$(srcdir)" -type f -name "*~" -print` \
+		`$(srcdir)/bootstrap --write-configure`
+# The last line above is a horrible hack.
+# GNU Coding Standards recommends that `make maintainer-clean' should not 
+# remove the configure script.
+# We instead make configure call bootstrap.
 
 # Indent all C source and header files, using indent(1):
 

@@ -28,19 +28,15 @@
 #endif
 #include "fribidi_unicode.h"
 
-#ifndef SIZEOF_CHAR
-#define SIZEOF_CHAR sizeof (char)
-#endif
-
 static void
-err (char *msg)
+err (const char *msg)
 {
   fprintf (stderr, "fribidi_create_char_types: %s\n", msg);
   exit (1);
 }
 
 static void
-err2 (char *fmt, char *p)
+err2 (const char *fmt, const char *p)
 {
   fprintf (stderr, "fribidi_create_char_types: ");
   fprintf (stderr, fmt, p);
@@ -51,7 +47,7 @@ err2 (char *fmt, char *p)
 /* *INDENT-OFF* */
 struct
 {
-  char *name;
+  const char *name;
   int key;
 }
 type_names[] =
@@ -85,7 +81,7 @@ static char *names[type_names_count];
 static char *unidata_file;
 
 static char
-get_type (char *s)
+get_type (const char *s)
 {
   int i;
 
@@ -109,7 +105,7 @@ get_type (char *s)
 static int table[FRIBIDI_UNICODE_CHARS];
 
 static void
-init_table ()
+init_table (void)
 {
   int i;
   register FriBidiChar c;
@@ -161,7 +157,7 @@ init_table ()
 }
 
 static void
-read_unicode_data ()
+read_unicode_data (void)
 {
   char s[500], tp[10];
   unsigned int i;
@@ -179,7 +175,7 @@ read_unicode_data ()
 }
 
 static char *
-headermacro (char *file)
+headermacro (const char *file)
 {
   char *t = strdup (file);
   char *p = t;
@@ -195,7 +191,7 @@ headermacro (char *file)
 }
 
 static void
-write_char_type (char *file, int max_depth)
+write_char_type (const char *file, int max_depth)
 {
   int i;
   FILE *f;
@@ -221,7 +217,7 @@ write_char_type (char *file, int max_depth)
   fprintf (f, "#define PACKTAB_UINT32 fribidi_uint32\n");
 
   if (!pack_table
-      (table, FRIBIDI_UNICODE_CHARS, SIZEOF_CHAR, max_depth, 3, names,
+      (table, FRIBIDI_UNICODE_CHARS, sizeof (char), max_depth, 3, names,
        key_type_name, table_name, macro_name, f))
     err ("error: insufficient memory, decrease max_depth");
 

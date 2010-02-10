@@ -2,7 +2,7 @@
 #include <fribidi.h>
 
 int
-main ()
+main (void)
 {
 
   FriBidiChar c;

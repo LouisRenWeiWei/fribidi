@@ -93,16 +93,6 @@ extern "C"
 				       FriBidiCharType *type);
 
 /*======================================================================
- *  fribidi_get_mirror_char() returns the mirrored character, if any.
- *----------------------------------------------------------------------*/
-  FRIBIDI_API fribidi_boolean fribidi_get_mirror_char (
-							/* Input */
-							FriBidiChar ch,
-							/* Output */
-							FriBidiChar
-							*mirrored_ch);
-
-/*======================================================================
  *  fribidi_get_mirror_char() returns the mirrored character, if input
  *  character has a mirror, or the input itself.
  *  if mirrored_ch is NULL, just returns if character has a mirror or not.
