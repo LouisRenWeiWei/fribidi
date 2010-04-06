@@ -5,7 +5,7 @@ Maintainer: Debian Hebrew Packaging Team <debian-hebrew-package@lists.alioth.deb
 Uploaders: Baruch Even <baruch@debian.org>,
  Lior Kaplan <kaplan@debian.org>,
  Shachar Shemesh <shachar@debian.org>,
- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+ أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
 Standards-Version: 3.8.4
 Build-Depends: debhelper (>= 7.0.50~), pkg-config
 Homepage: http://www.fribidi.org/
