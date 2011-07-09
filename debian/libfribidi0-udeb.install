@@ -1,1 +1,1 @@
-usr/lib/libfribidi.so.* lib
+usr/lib/*/libfribidi.so.* lib
