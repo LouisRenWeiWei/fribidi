@@ -33,7 +33,7 @@ Description: Development files for FreeBidi library
  FriBidi C library.
 
 Package: libfribidi0-udeb
-XC-Package-Type: udeb
+Package-Type: udeb
 Architecture: any
 Section: debian-installer
 Priority: extra
