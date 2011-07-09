@@ -6,7 +6,7 @@ Uploaders: Baruch Even <baruch@debian.org>,
  Lior Kaplan <kaplan@debian.org>,
  Shachar Shemesh <shachar@debian.org>,
  أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
-Standards-Version: 3.8.4
+Standards-Version: 3.9.2
 Build-Depends: debhelper (>= 7.0.50~), pkg-config
 Homepage: http://www.fribidi.org/
 Vcs-Git: git://git.debian.org/git/collab-maint/fribidi.git
