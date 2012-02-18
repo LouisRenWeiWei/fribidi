@@ -3,7 +3,6 @@ fribidi (0.19.2-2) unstable; urgency=low
   * debian/fribidi.1: fix manpage formatting (Closes: #477212)
   * debian/control:
     + Updated my email address
-    + Bumped Standards-Version to 3.9.2
     + XC-Package-Type -> Package-Type
   * Add multiarch support
     + Bumped compat level to 9
@@ -12,9 +11,10 @@ fribidi (0.19.2-2) unstable; urgency=low
       - Added Pre-Depends: ${misc:Pre-Depends} for libfribidi0
       - Added Multi-Arch: same for libfribidi0
     + *.install: usr/lib/ -> /usr/lib/*/
-  * debian/libfribidi-dev.install: Do not install .la file
+  * Bumped Standards-Version to 3.9.2
+    + Drop .la file as per Policy 10.2
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Sat, 28 Jan 2012 14:41:54 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Sat, 18 Feb 2012 18:58:42 +0200
 
 fribidi (0.19.2-1) unstable; urgency=low
 
