@@ -26,6 +26,3 @@ override_dh_auto_install:
 
 override_dh_makeshlibs:
 	dh_makeshlibs -V --add-udeb="$(FRIBIDI_UDEB)"
-
-override_dh_shlibdeps:
-	dh_shlibdeps -Xusr/bin/fribidi

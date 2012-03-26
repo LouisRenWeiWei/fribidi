@@ -42,3 +42,15 @@ Description: Free Implementation of the Unicode BiDi algorithm
  This Debian Installer component provided Bidirectional support 
  for Arabic and/or Hebrew languages.
 
+Package: libfribidi-bin
+Architecture: any
+Multi-Arch: foreign
+Section: utils
+Breaks: libfribidi0 (<< 0.19.2-3)
+Replaces: libfribidi0 (<< 0.19.2-3)
+Depends: ${misc:Depends}, ${shlibs:Depends}
+
+Description: Free Implementation of the Unicode BiDi algorithm (utility)
+ FriBiDi is a BiDi algorithm implementation for Hebrew and/or Arabic
+ languages.
+ This package contains a command line interface for the fribidi library.
