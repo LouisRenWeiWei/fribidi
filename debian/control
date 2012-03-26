@@ -44,7 +44,6 @@ Description: Free Implementation of the Unicode BiDi algorithm
 
 Package: libfribidi-bin
 Architecture: any
-Multi-Arch: foreign
 Section: utils
 Breaks: libfribidi0 (<< 0.19.2-3)
 Replaces: libfribidi0 (<< 0.19.2-3)
