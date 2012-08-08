@@ -9,7 +9,12 @@
 ##############################################################################
 
 ## The order of subdirs is important, don't change without a reason.
+
+if FRIBIDI_BIN
 SUBDIRS = gen.tab charset lib bin doc test
+else # FRIBIDI_BIN
+SUBDIRS = gen.tab charset lib doc test
+endif # FRIBIDI_BIN
 
 EXTRA_DIST = bootstrap ChangeLog.old
 

@@ -110,7 +110,7 @@ AC_CHECK_SIZEOF(wchar_t)
 # Checks for compiler characteristics.
 changequote(,)dnl
 if test "x$GCC" = "xyes"; then
-  CFLAGS="$CFLAGS -Wall -ansi "
+  CFLAGS="$CFLAGS -Wall "
 fi
 changequote([,])dnl
 
@@ -163,6 +163,18 @@ else
 fi
 AC_SUBST(FRIBIDI_CHARSETS)
 AM_CONDITIONAL(FRIBIDI_CHARSETS, test x$FRIBIDI_CHARSETS = x1)
+
+# --disable-bin
+AC_ARG_ENABLE(bin,
+              AC_HELP_STRING([--disable-bin],
+                             [exclude binaries from library]))
+if test x$enable_bin = xno; then
+	FRIBIDI_BIN=0
+else
+	FRIBIDI_BIN=1
+fi
+AC_SUBST(FRIBIDI_BIN)
+AM_CONDITIONAL(FRIBIDI_BIN, test x$FRIBIDI_BIN = x1)
 
 # --with[out]-glib
 AC_ARG_WITH(glib,
